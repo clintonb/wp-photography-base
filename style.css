@@ -77,10 +77,6 @@ input, textarea, select, .uneditable-input {
 	padding-left: 0;
 }
 
-#s{
-	width: 100px;
-}
-
 #content{
 	padding: 10px 0 0;
 }
@@ -565,11 +561,6 @@ blockquote.pull-left{
 	
 	.vcard:hover .edit-comment{
 		display: inline-block;
-	}
-	
-	#s{
-		width: 210px;
-		margin-bottom: 6px;
 	}
 	
 	.widget_search input{
