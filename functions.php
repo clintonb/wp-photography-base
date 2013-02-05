@@ -486,35 +486,13 @@ function theme_js(){
   wp_register_script('jquery', get_template_directory_uri().'/library/js/libs/jquery-1.7.1.min.js', false, '1.7.1');
 
   wp_register_script('bootstrap', get_template_directory_uri().'/library/js/bootstrap.min.js');
-  // wp_register_script('bootstrap-button', get_template_directory_uri().'/library/js/bootstrap-button.js');
-  // wp_register_script('bootstrap-carousel', get_template_directory_uri().'/library/js/bootstrap-carousel.js');
-  // wp_register_script('bootstrap-collapse', get_template_directory_uri().'/library/js/bootstrap-collapse.js');
-  // wp_register_script('bootstrap-dropdown', get_template_directory_uri().'/library/js/bootstrap-dropdown.js');
-  // wp_register_script('bootstrap-modal', get_template_directory_uri().'/library/js/bootstrap-modal.js');
-  // wp_register_script('bootstrap-popover', get_template_directory_uri().'/library/js/bootstrap-popover.js');
-  // wp_register_script('bootstrap-scrollspy', get_template_directory_uri().'/library/js/bootstrap-scrollspy.js');
-  // wp_register_script('bootstrap-tab', get_template_directory_uri().'/library/js/bootstrap-tab.js');
-  // wp_register_script('bootstrap-tooltip', get_template_directory_uri().'/library/js/bootstrap-tooltip.js');
-  // wp_register_script('bootstrap-transition', get_template_directory_uri().'/library/js/bootstrap-transition.js');
-  // wp_register_script('bootstrap-typeahead', get_template_directory_uri().'/library/js/bootstrap-typeahead.js');
 
   wp_register_script('wpbs-scripts', get_template_directory_uri().'/library/js/scripts.js');
   wp_register_script('modernizr', get_template_directory_uri().'/library/js/modernizr.full.min.js');
 
-  // wp_enqueue_script('less', array(''), '1.3.0', true);
   wp_enqueue_script('jquery');
   wp_enqueue_script('bootstrap', array('jQuery'), '1.1', true);
-  // wp_enqueue_script('bootstrap-button', array('jQuery'), '1.1', true);
-  // wp_enqueue_script('bootstrap-carousel', array('jQuery'), '1.1', true);
-  // wp_enqueue_script('bootstrap-collapse', array('jQuery'), '1.1', true);
-  // wp_enqueue_script('bootstrap-dropdown', array('jQuery'), '1.1', true);
-  // wp_enqueue_script('bootstrap-modal', array('jQuery'), '1.1', true);
-  // wp_enqueue_script('bootstrap-tooltip', array('jQuery'), '1.1', true);
-  // wp_enqueue_script('bootstrap-popover', array('jQuery'), '1.1', true);
-  // wp_enqueue_script('bootstrap-scrollspy', array('jQuery'), '1.1', true);
-  // wp_enqueue_script('bootstrap-tab', array('jQuery'), '1.1', true);
-  // wp_enqueue_script('bootstrap-transition', array('jQuery'), '1.1', true);
-  // wp_enqueue_script('bootstrap-typeahead', array('jQuery'), '1.1', true);
+
   wp_enqueue_script('wpbs-scripts', array('jQuery'), '1.1', true);
   wp_enqueue_script('modernizr', array('jQuery'), '1.1', true);
 }
