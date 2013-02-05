@@ -572,3 +572,22 @@ blockquote.pull-left{
 		padding-right: 0;
 	}
 }
+
+.navbar .nav > li > a.social {
+    padding-top: 5px;
+    padding-bottom:5px;
+    padding-left: 0;
+}
+
+.navbar .nav > li > a.social img {
+    width:30px;
+    height:30px;
+}
+
+.navbar .nav > li > a.social img.facebook-logo,
+.navbar .nav > li > a.social img.flickr-logo,
+.navbar .nav > li > a.social img.pinterest-logo {
+    width:20px;
+    height:20px;
+    padding-top: 5px;
+}

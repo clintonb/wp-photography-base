@@ -191,7 +191,30 @@ function optionsframework_options() {
 						"type" => "themecheck",
 						"id" => "themecheck"
 						);
-						
+
+    $options[] = array( "name" => "Social",
+                        "type" => "heading");
+
+    $options[] = array( "name" => "Facebook Page",
+                        "desc" => "Link to your Facebook page or profile",
+                        "id" => "social_facebook_url",
+                        "type" => "text");
+
+    $options[] = array( "name" => "Twitter Feed",
+                        "desc" => "Link to your Twitter profile",
+                        "id" => "social_twitter_url",
+                        "type" => "text");
+
+    $options[] = array( "name" => "Flickr",
+                        "desc" => "Link to your Flickr profile",
+                        "id" => "social_flickr_url",
+                        "type" => "text");
+
+    $options[] = array( "name" => "Pinterest",
+                        "desc" => "Link to your Pinterest profile",
+                        "id" => "social_pinterest_url",
+                        "type" => "text");
+
 	$options[] = array( "name" => "Other Settings",
 						"type" => "heading");
 
