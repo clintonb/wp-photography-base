@@ -121,48 +121,48 @@ function optionsframework_options() {
 						"class" => "mini", //mini, tiny, small
 						"options" => $fixed_scroll);
 						
-	$options[] = array( "name" => "Top nav background color",
-						"desc" => "Default used if no color is selected.",
-						"id" => "top_nav_bg_color",
-						"std" => "",
-						"type" => "color");
-						
-	$options[] = array( "name" => "Check to use a gradient for top nav background",
-						"desc" => "Use gradient",
-						"id" => "showhidden_gradient",
-						"std" => "",
-						"type" => "checkbox");
-	
-	$options[] = array( "name" => "Bottom gradient color",
-						"desc" => "Top nav background color used as top gradient color.",
-						"id" => "top_nav_bottom_gradient_color",
-						"std" => "",
-						"class" => "hidden",
-						"type" => "color");
-						
-	$options[] = array( "name" => "Top nav item color",
-						"desc" => "Link color.",
-						"id" => "top_nav_link_color",
-						"std" => "",
-						"type" => "color");
-						
-	$options[] = array( "name" => "Top nav item hover color",
-						"desc" => "Link hover color.",
-						"id" => "top_nav_link_hover_color",
-						"std" => "",
-						"type" => "color");
-						
-	$options[] = array( "name" => "Top nav dropdown item color",
-						"desc" => "Dropdown item color.",
-						"id" => "top_nav_dropdown_item",
-						"std" => "",
-						"type" => "color");
-						
-	$options[] = array( "name" => "Top nav dropdown item hover bg color",
-						"desc" => "Background of dropdown item hover color.",
-						"id" => "top_nav_dropdown_hover_bg",
-						"std" => "",
-						"type" => "color");
+//	$options[] = array( "name" => "Top nav background color",
+//						"desc" => "Default used if no color is selected.",
+//						"id" => "top_nav_bg_color",
+//						"std" => "",
+//						"type" => "color");
+//
+//	$options[] = array( "name" => "Check to use a gradient for top nav background",
+//						"desc" => "Use gradient",
+//						"id" => "showhidden_gradient",
+//						"std" => "",
+//						"type" => "checkbox");
+//
+//	$options[] = array( "name" => "Bottom gradient color",
+//						"desc" => "Top nav background color used as top gradient color.",
+//						"id" => "top_nav_bottom_gradient_color",
+//						"std" => "",
+//						"class" => "hidden",
+//						"type" => "color");
+//
+//	$options[] = array( "name" => "Top nav item color",
+//						"desc" => "Link color.",
+//						"id" => "top_nav_link_color",
+//						"std" => "",
+//						"type" => "color");
+//
+//	$options[] = array( "name" => "Top nav item hover color",
+//						"desc" => "Link hover color.",
+//						"id" => "top_nav_link_hover_color",
+//						"std" => "",
+//						"type" => "color");
+//
+//	$options[] = array( "name" => "Top nav dropdown item color",
+//						"desc" => "Dropdown item color.",
+//						"id" => "top_nav_dropdown_item",
+//						"std" => "",
+//						"type" => "color");
+//
+//	$options[] = array( "name" => "Top nav dropdown item hover bg color",
+//						"desc" => "Background of dropdown item hover color.",
+//						"id" => "top_nav_dropdown_hover_bg",
+//						"std" => "",
+//						"type" => "color");
 	
 	$options[] = array( "name" => "Search bar",
 						"desc" => "Show search bar in top nav",
