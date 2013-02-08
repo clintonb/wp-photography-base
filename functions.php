@@ -196,18 +196,39 @@ function bones_wpsearch($form) {
 
 /****************** password protected post form *****/
 
-add_filter( 'the_password_form', 'custom_password_form' );
-
-function custom_password_form() {
-	global $post;
-	$label = 'pwbox-'.( empty( $post->ID ) ? rand() : $post->ID );
-	$o = '<div class="clearfix"><form class="protected-post-form" action="' . get_option('siteurl') . '/wp-login.php?action=postpass" method="post">
-	' . '<p>' . __( "This post is password protected. To view it please enter your password below:" ,'bonestheme') . '</p>' . '
-	<label for="' . $label . '">' . __( "Password:" ,'bonestheme') . ' </label><div class="input-append"><input name="post_password" id="' . $label . '" type="password" size="20" /><input type="submit" name="Submit" class="btn btn-primary" value="' . esc_attr__( "Submit",'bonestheme' ) . '" /></div>
-	</form></div>
-	';
-	return $o;
+//////////////////////////////////////
+/// Customize the password form
+//////////////////////////////////////
+function bootstrap_the_password_form($form)
+{
+    $url = esc_url(site_url('wp-login.php?action=postpass', 'login_post'));
+    $id = get_the_ID();
+    $password_msg = __( "This post is password protected. To view it please enter your password below." ,'bonestheme');
+    return <<<FORM
+		<div class="container password-container">
+			<div class="hero-unit">
+				<h1>
+					Password Required
+				</h1>
+				<p>
+				    {$password_msg}
+				</p>
+				<form class="form-inline" method="post" action="{$url}">
+				    <div class="input-append">
+					    <input name="post_password" id="post-password-{$id}" type="password" class="input" placeholder="Password"><button type="submit" class="btn btn-primary">View Page</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<script type="text/javascript">
+			jQuery(document).ready(function(){
+				jQuery("#post-password-{$id}").focus();
+			});
+		</script>
+FORM;
 }
+
+add_filter('the_password_form', 'bootstrap_the_password_form');
 
 /*********** update standard wp tag cloud widget so it looks better ************/
 
@@ -652,5 +673,14 @@ function get_wpbs_theme_options(){
 } // end get_wpbs_theme_options function
 
 
+//////////////////////////////////////
+/// Strip protected title formatting
+//////////////////////////////////////
+function blank($title)
+{
+    return '%s';
+}
+
+add_filter('protected_title_format', 'blank');
 
 ?>
