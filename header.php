@@ -65,17 +65,6 @@
 				$myposts = get_posts( $args );
 				$post_num = 0;
 
-				global $typeahead_data;
-				$typeahead_data = "[";
-
-				foreach( $myposts as $post ) :	setup_postdata($post);
-					$typeahead_data .= '"' . get_the_title() . '",';
-				endforeach;
-
-				$typeahead_data = substr($typeahead_data, 0, strlen($typeahead_data) - 1);
-
-				$typeahead_data .= "]";
-
 				$post = $tmp_post;
 
 			} // end if search bar is used
@@ -110,7 +99,7 @@
 							
 							<?php if(of_get_option('search_bar', '1')) {?>
 							<form class="navbar-search pull-right" role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
-								<input name="s" id="s" type="text" class="search-query span2" autocomplete="off" placeholder="<?php _e('Search','bonestheme'); ?>" data-provide="typeahead" data-items="4" data-source='<?php echo $typeahead_data; ?>'>
+								<input name="s" id="s" type="text" class="search-query span2" autocomplete="off" placeholder="<?php _e('Search','bonestheme'); ?>" data-provide="typeahead" data-items="4">
 							</form>
 							<?php } ?>
                             <?php
