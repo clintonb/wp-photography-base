@@ -13,12 +13,13 @@
 	?>
 		<div class="container">
 			<article id="post-<?php the_ID(); ?>" role="article">
-				<header><h1 class="page-header"><span id="title"><?php the_title(); ?></span>
+				<header>
+                    <h1 class="page-header"><span class="title client-download" itemprop="headline"><?php the_title(); ?></span>
 					<?php
 					$zip_url = get_post_meta(get_the_ID(), 'zip_url', true);
 					if(!empty($zip_url)){
 						?>
-						<button class="btn btn-large btn-primary" id="downloadAll" onclick="window.open('<?php echo $zip_url; ?>');"><i class="icon-download-alt icon-white"></i> Download All Images</button>
+						<button class="btn btn-large btn-primary download-all" onclick="window.open('<?php echo $zip_url; ?>');"><i class="icon-download-alt icon-white"></i> Download All Images</button>
 						<?php
 					}?>
 					<div style="height:0; clear:both;"></div>
@@ -37,7 +38,7 @@
 							</div>
 							<div class="">
 					<?php
-								echo download_gallery($photoset_id);
+								echo do_shortcode("[flickr-download-gallery {$photoset_id}]");
 					?>
 							</div>
 					<?php

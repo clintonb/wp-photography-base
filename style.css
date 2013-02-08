@@ -1077,3 +1077,5 @@ blockquote.pull-left{padding-right:15px;}
 .navbar .nav>li>a.social.flickr{filter:grayscale(100%);-webkit-filter:grayscale(100%);-moz-filter:grayscale(100%);-ms-filter:grayscale(100%);-o-filter:grayscale(100%);}.navbar .nav>li>a.social.flickr img{height:20px;}
 .navbar .nav>li>a.social.flickr:hover{filter:grayscale(0);-webkit-filter:grayscale(0);-moz-filter:grayscale(0);-ms-filter:grayscale(0);-o-filter:grayscale(0);}
 .post-row{margin-bottom:20px;}.post-row .wp-post-image-outer{text-align:right;}.post-row .wp-post-image-outer .wp-post-image{margin-right:20px;}
+.page-header .title.client-download{float:left;}
+.page-header .btn.download-all{vertical-align:text-bottom;float:right;}

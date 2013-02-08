@@ -4,7 +4,7 @@
 			
 				<div id="main" class="span12 clearfix" role="main">
 				
-					<div class="page-header"><h1 class="archive_title h2">
+					<div class="page-header"><h1 class="title archive_title h2">
 						<span><?php _e("Posts By:", "bonestheme"); ?></span> 
 						<?php 
 							// If google profile field is filled out on author profile, link the author's page to their google+ profile page
