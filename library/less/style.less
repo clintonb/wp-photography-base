@@ -12,6 +12,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html http://www.apache.org/lice
 
 @import "../bootstrap/less/bootstrap";
 @import "../Font-Awesome/less/font-awesome";
+@import "variables";
+@import "mixins";
 
 
 /* micro clearfix: http://nicolasgallagher.com/micro-clearfix-hack/ */
@@ -579,9 +581,38 @@ blockquote.pull-left {
   padding-bottom: 5px;
   padding-left: 0;
 
-  i {
-    font-size: 20px;
+  @height: 20px;
+
+  * {
     padding-top: 5px;
+  }
+
+  i {
+    font-size: @height;
+  }
+
+  &.facebook:hover {
+    color: @color-facebook;
+  }
+
+  &.twitter:hover {
+    color: @color-twitter;
+  }
+
+  &.pinterest:hover {
+    color: @color-pinterest;
+  }
+
+  &.flickr {
+    .desaturate;
+
+    img {
+      height: @height;
+    }
+
+    &:hover {
+      .desaturate(0);
+    }
   }
 }
 

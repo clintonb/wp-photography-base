@@ -110,10 +110,10 @@
                                 $pinterest_url = of_get_option('social_pinterest_url');
                             ?>
                             <ul class="nav pull-right">
-                                <?php if($facebook_url){?><li><a class="social" href="<?php echo $facebook_url; ?>" title="Like my Facebook page!" target="blank"><i class="icon-facebook-sign"></i></a></li><?php } ?>
-                                <?php if($twitter_url){?><li><a class="social" href="<?php echo $twitter_url; ?>" title="Follow me on Twitter!" target="blank"><i class="icon-twitter-sign"></i></a></li><?php } ?>
-                                <?php if($flickr_url){?><li><a class="social" href="<?php echo $flickr_url; ?>" title="See my photos on Flickr!" target="blank"><i class="icon-sign-blank"></i></a></li><?php } ?>
-                                <?php if($pinterest_url){?><li><a class="social" href="<?php echo $pinterest_url; ?>" title="Follow me on Pinterest!" target="blank"><i class="icon-pinterest-sign"></i></a></li><?php } ?>
+                                <?php if($facebook_url){?><li><a class="social facebook" href="<?php echo $facebook_url; ?>" title="Like my Facebook page!" target="blank"><i class="icon-facebook-sign"></i></a></li><?php } ?>
+                                <?php if($twitter_url){?><li><a class="social twitter" href="<?php echo $twitter_url; ?>" title="Follow me on Twitter!" target="blank"><i class="icon-twitter-sign"></i></a></li><?php } ?>
+                                <?php if($flickr_url){?><li><a class="social flickr" href="<?php echo $flickr_url; ?>" title="See my photos on Flickr!" target="blank"><img src="http://l.yimg.com/g/images/goodies/white-small-chiclet.png"></a></li><?php } ?>
+                                <?php if($pinterest_url){?><li><a class="social pinterest" href="<?php echo $pinterest_url; ?>" title="Follow me on Pinterest!" target="blank"><i class="icon-pinterest-sign"></i></a></li><?php } ?>
                             </ul>
 							
 						</div>
