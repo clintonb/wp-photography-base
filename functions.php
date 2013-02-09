@@ -473,10 +473,13 @@ add_editor_style('editor-style.css');
 // Add Twitter Bootstrap's standard 'active' class name to the active nav link item
 
 add_filter('nav_menu_css_class', 'add_active_class', 10, 2 );
-function add_active_class($classes, $item) {
-	if($item->menu_item_parent == 0 && in_array('current-menu-item', $classes)) {
-        $classes[] = "active";
-	}
+function add_active_class($classes = array(), $menu_item = false)
+{
+
+    if (in_array('current-menu-item', $menu_item->classes) || in_array('current-menu-parent', $menu_item->classes)) {
+        $classes[] = 'active';
+    }
+
     return $classes;
 }
 
