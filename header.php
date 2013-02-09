@@ -81,40 +81,40 @@
 				
 				<div class="navbar navbar-fixed-top">
 					<div class="navbar-inner">
-						<div class="container-fluid nav-container">
+						<div class="container">
 							<nav role="navigation">
-								<a class="brand" id="logo" title="<?php echo get_bloginfo('description'); ?>" href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a>
-								
+                                <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
 								<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 							        <span class="icon-bar"></span>
 							        <span class="icon-bar"></span>
 							        <span class="icon-bar"></span>
 								</a>
+
+                                <a class="brand" id="logo" title="<?php echo get_bloginfo('description'); ?>" href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a>
 								
 								<div class="nav-collapse">
 									<?php bones_main_nav(); // Adjust using Menus in Wordpress Admin ?>
+
+                                    <?php if(of_get_option('search_bar', '1')) {?>
+                                    <form class="navbar-search pull-right" role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
+                                        <input name="s" id="s" type="text" class="search-query span2" autocomplete="on" placeholder="<?php _e('Search','bonestheme'); ?>">
+                                    </form>
+                                    <?php } ?>
+
+                                    <ul class="nav pull-right social-icons">
+                                        <?php
+                                        $facebook_url = of_get_option('social_facebook_url');
+                                        $twitter_url = of_get_option('social_twitter_url');
+                                        $flickr_url = of_get_option('social_flickr_url');
+                                        $pinterest_url = of_get_option('social_pinterest_url');
+                                        ?>
+                                        <?php if($facebook_url){?><li><a class="social facebook" href="<?php echo $facebook_url; ?>" title="Like my Facebook page!" target="blank"><i class="icon-facebook-sign"></i></a></li><?php } ?>
+                                        <?php if($twitter_url){?><li><a class="social twitter" href="<?php echo $twitter_url; ?>" title="Follow me on Twitter!" target="blank"><i class="icon-twitter-sign"></i></a></li><?php } ?>
+                                        <?php if($flickr_url){?><li><a class="social flickr" href="<?php echo $flickr_url; ?>" title="See my photos on Flickr!" target="blank"><img src="http://l.yimg.com/g/images/goodies/white-small-chiclet.png"></a></li><?php } ?>
+                                        <?php if($pinterest_url){?><li><a class="social pinterest" href="<?php echo $pinterest_url; ?>" title="Follow me on Pinterest!" target="blank"><i class="icon-pinterest-sign"></i></a></li><?php } ?>
+                                    </ul>
 								</div>
-								
 							</nav>
-							
-							<?php if(of_get_option('search_bar', '1')) {?>
-							<form class="navbar-search pull-right" role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
-								<input name="s" id="s" type="text" class="search-query span2" autocomplete="on" placeholder="<?php _e('Search','bonestheme'); ?>">
-							</form>
-							<?php } ?>
-                            <?php
-                                $facebook_url = of_get_option('social_facebook_url');
-                                $twitter_url = of_get_option('social_twitter_url');
-                                $flickr_url = of_get_option('social_flickr_url');
-                                $pinterest_url = of_get_option('social_pinterest_url');
-                            ?>
-                            <ul class="nav pull-right">
-                                <?php if($facebook_url){?><li><a class="social facebook" href="<?php echo $facebook_url; ?>" title="Like my Facebook page!" target="blank"><i class="icon-facebook-sign"></i></a></li><?php } ?>
-                                <?php if($twitter_url){?><li><a class="social twitter" href="<?php echo $twitter_url; ?>" title="Follow me on Twitter!" target="blank"><i class="icon-twitter-sign"></i></a></li><?php } ?>
-                                <?php if($flickr_url){?><li><a class="social flickr" href="<?php echo $flickr_url; ?>" title="See my photos on Flickr!" target="blank"><img src="http://l.yimg.com/g/images/goodies/white-small-chiclet.png"></a></li><?php } ?>
-                                <?php if($pinterest_url){?><li><a class="social pinterest" href="<?php echo $pinterest_url; ?>" title="Follow me on Pinterest!" target="blank"><i class="icon-pinterest-sign"></i></a></li><?php } ?>
-                            </ul>
-							
 						</div>
 					</div>
 				</div>

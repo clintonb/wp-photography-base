@@ -1,4 +1,4 @@
-/*
+/*!
 Theme Name: wp-photography-base
 Theme URI: http://clintonblackburn.com/wp-photography-base
 Description: Bootstrap theme for photography
@@ -11,6 +11,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html http://www.apache.org/lice
 */
 
 @import "../bootstrap/less/bootstrap";
+@import "../bootstrap/less/responsive";
 @import "../Font-Awesome/less/font-awesome";
 @import "variables";
 @import "mixins";
@@ -604,6 +605,7 @@ blockquote.pull-left {
 
     img {
       height: @height;
+      vertical-align: text-bottom;
     }
 
     &:hover {
@@ -648,14 +650,20 @@ body.home {
     width: 100%;
   }
 
-//  .navbar-fixed-top {
-//    margin-bottom: 0;
-//  }
-//
-//  @media (max-width: 767px) {
-//    .navbar {
-//      padding-left: 20px;
-//      padding-right: 20px;
-//    }
-//  }
+  .navbar-fixed-top {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 767px) {
+    .navbar {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+}
+
+.nav-collapse.in.collapse {
+  ul.social-icons li {
+    display: inline-block;
+  }
 }
