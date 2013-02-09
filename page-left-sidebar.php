@@ -33,8 +33,6 @@ Template Name: Left Sidebar Page
 
                     </article> <!-- end article -->
 
-                    <?php comments_template(); ?>
-
                     <?php endwhile; ?>
 
                     <?php else : ?>
