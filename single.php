@@ -8,9 +8,12 @@
 						
 						<header>
 						
-							<div class="page-header"><h1 class="title single-title" itemprop="headline"><?php the_title(); ?></h1></div>
+							<div class="page-header">
+                                <h1 class="title single-title" itemprop="headline"><?php the_title(); ?></h1>
+                                <div class="meta"><?php _e("Posted", "bonestheme"); ?> <time datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_date(); ?></time> <?php _e("by", "bonestheme"); ?> <?php the_author_posts_link(); ?> <span class="amp">&</span> <?php _e("filed under", "bonestheme"); ?> <?php the_category(', '); ?>.</div>
+                            </div>
 							
-							<p class="meta"><?php _e("Posted", "bonestheme"); ?> <time datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_date(); ?></time> <?php _e("by", "bonestheme"); ?> <?php the_author_posts_link(); ?> <span class="amp">&</span> <?php _e("filed under", "bonestheme"); ?> <?php the_category(', '); ?>.</p>
+
 						
 						</header> <!-- end article header -->
 					
