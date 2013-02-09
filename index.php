@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+</div>
 
 <!-- Page content -->
 <div class="home">
@@ -20,4 +21,5 @@
         $window.trigger('resize');
     });
 </script>
+<div>
 <?php get_footer(); ?>
