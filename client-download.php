@@ -38,7 +38,7 @@
 							</div>
 							<div class="">
 					<?php
-								echo do_shortcode("[flickr-download-gallery {$photoset_id}]");
+								echo do_shortcode("[flickr-download-gallery id={$photoset_id}]");
 					?>
 							</div>
 					<?php
