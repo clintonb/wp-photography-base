@@ -1,8 +1,6 @@
 <?php get_header(); ?>
 			
-			<div id="content" class="clearfix row-fluid">
-			
-				<div id="main" class="span12 clearfix" role="main">
+			<div id="main" class="span12 clearfix" role="main">
 
 					<article id="post-not-found" class="clearfix">
 						
@@ -36,7 +34,5 @@
 					</article> <!-- end article -->
 			
 				</div> <!-- end #main -->
-    
-			</div> <!-- end #content -->
 
 <?php get_footer(); ?>

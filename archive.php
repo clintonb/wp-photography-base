@@ -1,8 +1,5 @@
 <?php get_header(); ?>
-			
-			<div id="content" class="clearfix row-fluid">
-			
-				<div id="main" class="span12 clearfix" role="main">
+			<div id="main" class="span12 clearfix" role="main">
 				
 					<div class="page-header">
 					<?php if (is_category()) { ?>
@@ -35,7 +32,4 @@
                     <?php get_template_part('loop'); ?>
 			
 				</div> <!-- end #main -->
-    
-			</div> <!-- end #content -->
-
 <?php get_footer(); ?>
