@@ -1256,8 +1256,8 @@ blockquote.pull-left{padding-right:15px;}
 .navbar .nav>li>a.social.facebook:hover{color:#3b5998;}
 .navbar .nav>li>a.social.twitter:hover{color:#00aced;}
 .navbar .nav>li>a.social.pinterest:hover{color:#cb2027;}
-.navbar .nav>li>a.social.flickr{filter:grayscale(100%);-webkit-filter:grayscale(100%);-moz-filter:grayscale(100%);-ms-filter:grayscale(100%);-o-filter:grayscale(100%);}.navbar .nav>li>a.social.flickr img{height:20px;vertical-align:text-bottom;}
-.navbar .nav>li>a.social.flickr:hover{filter:grayscale(0);-webkit-filter:grayscale(0);-moz-filter:grayscale(0);-ms-filter:grayscale(0);-o-filter:grayscale(0);}
+.navbar .nav>li>a.social.flickr{filter:gray;filter:grayscale(100%);filter:url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");-webkit-filter:grayscale(100%);-moz-filter:grayscale(100%);-ms-filter:grayscale(100%);-o-filter:grayscale(100%);}.navbar .nav>li>a.social.flickr img{height:20px;vertical-align:text-bottom;}
+.navbar .nav>li>a.social.flickr:hover{filter:gray;filter:grayscale(0);filter:url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");-webkit-filter:grayscale(0);-moz-filter:grayscale(0);-ms-filter:grayscale(0);-o-filter:grayscale(0);filter:url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");}
 .post-row{margin-bottom:20px;}.post-row .wp-post-image-outer{text-align:right;}.post-row .wp-post-image-outer .wp-post-image{margin-right:20px;}
 .page-header .title.client-download{float:left;}
 .page-header .btn.download-all{vertical-align:text-bottom;float:right;}
