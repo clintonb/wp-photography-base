@@ -1326,3 +1326,4 @@ body.home{height:auto;background:black;padding-left:0;padding-right:0;}body.home
 body.home .navbar-fixed-top{margin-bottom:0;}
 @media (max-width:767px){body.home .navbar{padding-left:20px;padding-right:20px;}}
 .nav-collapse.in.collapse ul.social-icons li{display:inline-block;}
+#post-not-found{margin-top:10px;}
