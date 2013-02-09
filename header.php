@@ -99,11 +99,10 @@
 							
 							<?php if(of_get_option('search_bar', '1')) {?>
 							<form class="navbar-search pull-right" role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
-								<input name="s" id="s" type="text" class="search-query span2" autocomplete="off" placeholder="<?php _e('Search','bonestheme'); ?>" data-provide="typeahead" data-items="4">
+								<input name="s" id="s" type="text" class="search-query span2" autocomplete="on" placeholder="<?php _e('Search','bonestheme'); ?>">
 							</form>
 							<?php } ?>
                             <?php
-                                // TODO Make this DRY
                                 $facebook_url = of_get_option('social_facebook_url');
                                 $twitter_url = of_get_option('social_twitter_url');
                                 $flickr_url = of_get_option('social_flickr_url');

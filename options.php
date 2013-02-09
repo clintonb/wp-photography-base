@@ -218,6 +218,11 @@ function optionsframework_options() {
 	$options[] = array( "name" => "Other Settings",
 						"type" => "heading");
 
+    $options[] = array( "name" => "Homepage Flickr Photoset ID",
+                        "desc" => "",
+                        "id" => "homepage_flickr_photoset_id",
+                        "type" => "text");
+
 	$options[] = array( "name" => "Slider carousel on homepage",
 						"desc" => "Display the bootstrap slider carousel on homepage page template. This uses the wordpress featured images.",
 						"id" => "showhidden_slideroptions",

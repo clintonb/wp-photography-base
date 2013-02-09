@@ -3,7 +3,9 @@
 
 <!-- Page content -->
 <div class="home">
-    <?php echo do_shortcode("[flickr-photoset-fullscreen id=72157626168629747]"); ?>
+    <?php
+        $photoset_id = of_get_option("homepage_flickr_photoset_id");
+        echo do_shortcode("[flickr-photoset-fullscreen id={$photoset_id}]"); ?>
 </div>
 
 <script type="text/javascript">
@@ -21,5 +23,3 @@
         $window.trigger('resize');
     });
 </script>
-<div>
-<?php get_footer(); ?>
