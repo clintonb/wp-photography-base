@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 			
-			<div id="main" class="span12 clearfix" role="main">
+			<div id="main" class="clearfix" role="main">
 
                 <div class="page-header"><h1 class="title archive_title h2">
                     <span><?php _e("Posts By:", "bonestheme"); ?></span>
