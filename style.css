@@ -1,3 +1,14 @@
+/*
+Theme Name: wp-photography-base
+Theme URI: http://clintonblackburn.com/wp-photography-base
+Description: Bootstrap theme for photography
+Version: 0.1
+Author: Clinton Blackburn
+Author URI: http://clintonblackburn.com
+Tags: black, white, one-column, two-columns, flexible-width, custom-background, custom-colors, custom-menu, full-width-template, theme-options
+License: GNU General Public License v2.0 & Apache License 2.0
+License URI: http://www.gnu.org/licenses/gpl-2.0.html http://www.apache.org/licenses/LICENSE-2.0
+*/
 @import url('//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700');
 article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display:block;}
 audio,canvas,video{display:inline-block;*display:inline;*zoom:1;}
