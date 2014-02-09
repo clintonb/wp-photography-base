@@ -11,20 +11,44 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
         <title><?php wp_title('|', true, 'right') . bloginfo('name'); ?></title>
+
+        <?php
+            $post_id = $post->ID;
+            $url = get_permalink($post_id);
+            $site_name = get_bloginfo('name');
+            $title = single_post_title("", false);
+            $title = $title ? $title : $site_name;
+            $image = get_post_thumbnail_src($post_id);
+            $description = strip_tags(strip_shortcodes($post->post_content));// my_excerpt($post->post_content, null);
+        ?>
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:url" content="<?php echo $url; ?>"/>
+        <meta name="twitter:title" content="<?php echo $title; ?>" />
+        <meta name="twitter:description" content="<?php echo $description; ?>" />
+        <meta name="twitter:image" content="<?php echo $image; ?>" />
+        <meta name="twitter:creator" content="ccb621">
+        <meta name="twitter:creator:id" content="43314773">
+
+        <!-- Facebook Open Graph -->
+        <meta property="og:title" content="<?php echo $title; ?>"/>
+        <meta property="og:type" content="public_figure"/>
+        <meta property="og:url" content="<?php echo $url; ?>"/>
+        <meta property="og:image" content="<?php echo $image; ?>"/>
+        <meta property="og:site_name" content="<?php echo $site_name; ?>"/>
+        <meta property="og:description" content="<?php echo $description; ?>"/>
 				
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
 		<!-- icons & favicons -->
 		<!-- For iPhone 4 -->
-		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo get_template_directory_uri(); ?>/library/images/icons/h/apple-touch-icon.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo get_template_directory_uri(); ?>/images/cb-logo-114x114.png">
 		<!-- For iPad 1-->
-		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo get_template_directory_uri(); ?>/library/images/icons/m/apple-touch-icon.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo get_template_directory_uri(); ?>/images/cb-logo-72x72.png">
 		<!-- For iPhone 3G, iPod Touch and Android -->
-		<link rel="apple-touch-icon-precomposed" href="<?php echo get_template_directory_uri(); ?>/library/images/icons/l/apple-touch-icon-precomposed.png">
-		<!-- For Nokia -->
-		<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/library/images/icons/l/apple-touch-icon.png">
+		<link rel="apple-touch-icon-precomposed" href="<?php echo get_template_directory_uri(); ?>/images/cb-logo-57x57.png">
 		<!-- For everything else -->
-		<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">
+		<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/images/cb-logo.png">
 				
 		<!-- media-queries.js (fallback) -->
 		<!--[if lt IE 9]>

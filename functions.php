@@ -686,4 +686,44 @@ function blank($title)
 
 add_filter('protected_title_format', 'blank');
 
+function get_post_thumbnail_src($post_id){
+    $content = get_the_post_thumbnail($post_id, 'thumbnail');
+    $output = preg_match_all( '/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $content, $matches );
+    $src = "";
+
+    // Make sure there was an image that was found, otherwise return false
+    if ( $output !== FALSE ) {
+        $src = $matches[1][0];
+        if ( ! preg_match('/^https?:\/\//', $src ) ) {
+            // Remove any starting slash with ltrim() and add one to the end of site_url()
+            $src = site_url( '/' ) . ltrim( $src, '/' );
+        }
+    }
+
+    return $src;
+}
+
+function my_excerpt($text, $excerpt)
+{
+    if ($excerpt) return $excerpt;
+
+    $text = strip_shortcodes( $text );
+
+    $text = apply_filters('the_content', $text);
+    $text = str_replace(']]>', ']]&gt;', $text);
+    $text = strip_tags($text);
+    $excerpt_length = apply_filters('excerpt_length', 55);
+    $excerpt_more = apply_filters('excerpt_more', ' ' . '[...]');
+    $words = preg_split("/[\n\r\t ]+/", $text, $excerpt_length + 1, PREG_SPLIT_NO_EMPTY);
+    if ( count($words) > $excerpt_length ) {
+        array_pop($words);
+        $text = implode(' ', $words);
+        $text = $text . $excerpt_more;
+    } else {
+        $text = implode(' ', $words);
+    }
+
+    return wp_trim_excerpt($text);// apply_filters('wp_trim_excerpt', $text, $raw_excerpt);
+}
+
 ?>
