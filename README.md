@@ -3,6 +3,12 @@ wp-photography-base
 
 This is my customized Wordpress theme for my photography website. It is based on [wordpress-bootstrap](http://320press.com/wpbs). Much of the original functionality is intact. Most of my changes CSS modifications and the addition of new page templates for displaying portfolios and client downloads. Additionally, this theme relies on my plugin, [wp-flickr-base](https://github.com/clintonb/wp-flickr-base) image retrieval from Flickr.
 
+Theme Settings
+--------------
+
+This theme adds one setting, *Homepage Flickr Photoset ID*. Set this to the ID of the Flickr photoset that should be displayed on the homepage.
+
+
 Page Templates
 --------------
 
