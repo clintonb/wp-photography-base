@@ -25,3 +25,8 @@ The portfolio and client download pages rely on two custom fields:
 
 * flickr_photoset_id: ID of the photoset being displayed
 * zip_url: (optional) URL for the "Download All Images" link. This is only used on the client download page. I prefer to use [Flick and Share](http://www.flickandshare.com/) links.
+
+
+**Featured Image/Thumbnail**
+
+If you supply a flickr_photoset_id to a post or page, the photoset's primary image will be used as the featured image/thumbnail for the post/page.
