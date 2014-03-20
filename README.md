@@ -1,41 +1,21 @@
-WORDPRESS BOOTSTRAP
+wp-photography-base
 ===================
 
-Twitter's bootstrap (http://twitter.github.com/bootstrap) in Wordpress theme form. Using Eddie Machado's Bones for a starting point (https://github.com/eddiemachado/bones). 
-
-FEATURES
-________
-
-We’ve built the WordPress Bootstrap theme so that it could be used as-is or as a starting point for theme developers. It’s built on top of the brilliant Bones theme framework by Eddie Machado and based on v2.1.1 of Twitter’s Bootstrap.
-
-Here’s what we’ve got so far. Star this project on Github to keep up with its progress.
-
-Responsive
-__________
-
-We stick as closely as possible to bootstrap so this thing is natually responsive. 
+This is my customized Wordpress theme for my photography website. It is based on [wordpress-bootstrap](http://320press.com/wpbs). Much of the original functionality is intact. Most of my changes CSS modifications and the addition of new page templates for displaying portfolios and client downloads. Additionally, this theme relies on my plugin, [wp-flickr-base](https://github.com/clintonb/wp-flickr-base) image retrieval from Flickr.
 
 Page Templates
-______________
+--------------
 
-We’ve packaged four different page templates into this theme.
+Template     | Description        | Example
+------------- | ------------- | ----------
+Homepage | Displays a full-screen slideshow that cannot be closed | http://clintonblackburn.com/
+Portfolio | Displays a grid of photos. Clicking on a photo enters a slideshow. | http://clintonblackburn.com/portfolio/portraits/
+Client Download | Similar to portfolio, but includes download links for individual photos and the entire set | http://clintonblackburn.com/clients/joemmys-shots/
 
-    - Homepage template (seen on the homepage of this site)
-    - Standard page with right sidebar (this page)
-    - Page with left sidebar
-    - Full width page
 
-Theme Options Panel
-___________________
+**Custom Fields**
 
-Want to change some colors? Want the top nav to scroll with the content? Hide the search box in the top nav? Do it in the options panel.
+The portfolio and client download pages rely on two custom fields:
 
-Shortcodes
-__________
-
-We’ve built in some shortcodes so you can easily add UI elements found in Twitter Bootstrap.
-
-Sidebars
-________
-
-We’ve built in two different sidebars. One for the homepage and one for the other pages. Add widgets to them.
+* flickr_photoset_id: ID of the photoset being displayed
+* zip_url: (optional) URL for the "Download All Images" link. This is only used on the client download page. I prefer to use [Flick and Share](http://www.flickandshare.com/) links.
