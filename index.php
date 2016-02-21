@@ -23,3 +23,4 @@
         $window.trigger('resize');
     });
 </script>
+<?php get_footer(); ?>
