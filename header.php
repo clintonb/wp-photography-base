@@ -21,22 +21,6 @@
             $image = get_post_thumbnail_src($post_id);
             $description = strip_tags(strip_shortcodes($post->post_content));// my_excerpt($post->post_content, null);
         ?>
-
-        <meta name="twitter:card" content="summary">
-        <meta name="twitter:url" content="<?php echo $url; ?>"/>
-        <meta name="twitter:title" content="<?php echo $title; ?>" />
-        <meta name="twitter:description" content="<?php echo $description; ?>" />
-        <meta name="twitter:image" content="<?php echo $image; ?>" />
-        <meta name="twitter:creator" content="ccb621">
-        <meta name="twitter:creator:id" content="43314773">
-
-        <!-- Facebook Open Graph -->
-        <meta property="og:title" content="<?php echo $title; ?>"/>
-        <meta property="og:type" content="public_figure"/>
-        <meta property="og:url" content="<?php echo $url; ?>"/>
-        <meta property="og:image" content="<?php echo $image; ?>"/>
-        <meta property="og:site_name" content="<?php echo $site_name; ?>"/>
-        <meta property="og:description" content="<?php echo $description; ?>"/>
 				
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 				
