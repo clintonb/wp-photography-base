@@ -23,21 +23,22 @@ require_once('library/shortcodes.php');
 
 // Custom Backend Footer
 add_filter('admin_footer_text', 'bones_custom_admin_footer');
-function bones_custom_admin_footer() {
-	echo '<span id="footer-thankyou">Developed by <a href="http://320press.com" target="_blank">320press</a></span>. Built using <a href="http://themble.com/bones" target="_blank">Bones</a>.';
+function bones_custom_admin_footer()
+{
+    echo '<span id="footer-thankyou">Developed by <a href="http://320press.com" target="_blank">320press</a></span>. Built using <a href="http://themble.com/bones" target="_blank">Bones</a>.';
 }
 
 // Set content width
-if ( ! isset( $content_width ) ) $content_width = 580;
+if (!isset($content_width)) $content_width = 580;
 
 /************* THUMBNAIL SIZE OPTIONS *************/
 
 // Thumbnail sizes
-add_image_size( 'wpbs-featured', 638, 300, true );
-add_image_size( 'wpbs-featured-home', 970, 311, true);
-add_image_size( 'wpbs-featured-carousel', 970, 400, true);
-add_image_size( 'bones-thumb-600', 600, 150, false );
-add_image_size( 'bones-thumb-300', 300, 100, true );
+add_image_size('wpbs-featured', 638, 300, true);
+add_image_size('wpbs-featured-home', 970, 311, true);
+add_image_size('wpbs-featured-carousel', 970, 400, true);
+add_image_size('bones-thumb-600', 600, 150, false);
+add_image_size('bones-thumb-300', 300, 100, true);
 /* 
 to add more sizes, simply copy a line from above 
 and change the dimensions & name. As long as you
@@ -61,55 +62,56 @@ you like. Enjoy!
 /************* ACTIVE SIDEBARS ********************/
 
 // Sidebars & Widgetizes Areas
-function bones_register_sidebars() {
+function bones_register_sidebars()
+{
     register_sidebar(array(
-    	'id' => 'sidebar1',
-    	'name' => 'Main Sidebar',
-    	'description' => 'Used on every page BUT the homepage page template.',
-    	'before_widget' => '<div id="%1$s" class="widget %2$s">',
-    	'after_widget' => '</div>',
-    	'before_title' => '<h4 class="widgettitle">',
-    	'after_title' => '</h4>',
-    ));
-    
-    register_sidebar(array(
-    	'id' => 'sidebar2',
-    	'name' => 'Homepage Sidebar',
-    	'description' => 'Used only on the homepage page template.',
-    	'before_widget' => '<div id="%1$s" class="widget %2$s">',
-    	'after_widget' => '</div>',
-    	'before_title' => '<h4 class="widgettitle">',
-    	'after_title' => '</h4>',
-    ));
-    
-    register_sidebar(array(
-      'id' => 'footer1',
-      'name' => 'Footer 1',
-      'before_widget' => '<div id="%1$s" class="widget span4 %2$s">',
-      'after_widget' => '</div>',
-      'before_title' => '<h4 class="widgettitle">',
-      'after_title' => '</h4>',
+        'id' => 'sidebar1',
+        'name' => 'Main Sidebar',
+        'description' => 'Used on every page BUT the homepage page template.',
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h4 class="widgettitle">',
+        'after_title' => '</h4>',
     ));
 
     register_sidebar(array(
-      'id' => 'footer2',
-      'name' => 'Footer 2',
-      'before_widget' => '<div id="%1$s" class="widget span4 %2$s">',
-      'after_widget' => '</div>',
-      'before_title' => '<h4 class="widgettitle">',
-      'after_title' => '</h4>',
+        'id' => 'sidebar2',
+        'name' => 'Homepage Sidebar',
+        'description' => 'Used only on the homepage page template.',
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h4 class="widgettitle">',
+        'after_title' => '</h4>',
     ));
 
     register_sidebar(array(
-      'id' => 'footer3',
-      'name' => 'Footer 3',
-      'before_widget' => '<div id="%1$s" class="widget span4 %2$s">',
-      'after_widget' => '</div>',
-      'before_title' => '<h4 class="widgettitle">',
-      'after_title' => '</h4>',
+        'id' => 'footer1',
+        'name' => 'Footer 1',
+        'before_widget' => '<div id="%1$s" class="widget span4 %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h4 class="widgettitle">',
+        'after_title' => '</h4>',
     ));
-    
-    
+
+    register_sidebar(array(
+        'id' => 'footer2',
+        'name' => 'Footer 2',
+        'before_widget' => '<div id="%1$s" class="widget span4 %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h4 class="widgettitle">',
+        'after_title' => '</h4>',
+    ));
+
+    register_sidebar(array(
+        'id' => 'footer3',
+        'name' => 'Footer 3',
+        'before_widget' => '<div id="%1$s" class="widget span4 %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h4 class="widgettitle">',
+        'after_title' => '</h4>',
+    ));
+
+
     /* 
     to add more sidebars or widgetized areas, just copy
     and edit the above sidebar code. In order to call 
@@ -129,82 +131,86 @@ function bones_register_sidebars() {
 } // don't remove this bracket!
 
 /************* COMMENT LAYOUT *********************/
-		
+
 // Comment Layout
 function bones_comments($comment, $args, $depth) {
-   $GLOBALS['comment'] = $comment; ?>
-	<li <?php comment_class(); ?>>
-		<article id="comment-<?php comment_ID(); ?>" class="clearfix">
-			<div class="comment-author vcard row-fluid clearfix">
-				<div class="avatar span3">
-					<?php echo get_avatar($comment,$size='75',$default='<path_to_url>' ); ?>
-				</div>
-				<div class="span9 comment-text">
-					<?php printf('<h4>%s</h4>', get_comment_author_link()) ?>
-					<?php edit_comment_link(__('Edit','bonestheme'),'<span class="edit-comment btn btn-small btn-info"><i class="icon-white icon-pencil"></i>','</span>') ?>
-                    
-                    <?php if ($comment->comment_approved == '0') : ?>
-       					<div class="alert-message success">
-          				<p><?php _e('Your comment is awaiting moderation.','bonestheme') ?></p>
-          				</div>
-					<?php endif; ?>
-                    
-                    <?php comment_text() ?>
-                    
-                    <time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time('F jS, Y'); ?> </a></time>
-                    
-					<?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
-                </div>
-			</div>
-		</article>
+$GLOBALS['comment'] = $comment; ?>
+<li <?php comment_class(); ?>>
+    <article id="comment-<?php comment_ID(); ?>" class="clearfix">
+        <div class="comment-author vcard row-fluid clearfix">
+            <div class="avatar span3">
+                <?php echo get_avatar($comment, $size = '75', $default = '<path_to_url>'); ?>
+            </div>
+            <div class="span9 comment-text">
+                <?php printf('<h4>%s</h4>', get_comment_author_link()) ?>
+                <?php edit_comment_link(__('Edit', 'bonestheme'), '<span class="edit-comment btn btn-small btn-info"><i class="icon-white icon-pencil"></i>', '</span>') ?>
+
+                <?php if ($comment->comment_approved == '0') : ?>
+                    <div class="alert-message success">
+                        <p><?php _e('Your comment is awaiting moderation.', 'bonestheme') ?></p>
+                    </div>
+                <?php endif; ?>
+
+                <?php comment_text() ?>
+
+                <time datetime="<?php echo comment_time('Y-m-j'); ?>"><a
+                            href="<?php echo htmlspecialchars(get_comment_link($comment->comment_ID)) ?>"><?php comment_time('F jS, Y'); ?> </a>
+                </time>
+
+                <?php comment_reply_link(array_merge($args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
+            </div>
+        </div>
+    </article>
     <!-- </li> is added by wordpress automatically -->
-<?php
-} // don't remove this bracket!
+    <?php
+    } // don't remove this bracket!
 
-// Display trackbacks/pings callback function
-function list_pings($comment, $args, $depth) {
-       $GLOBALS['comment'] = $comment;
-?>
-        <li id="comment-<?php comment_ID(); ?>"><i class="icon icon-share-alt"></i>&nbsp;<?php comment_author_link(); ?>
-<?php 
+    // Display trackbacks/pings callback function
+    function list_pings($comment, $args, $depth) {
+    $GLOBALS['comment'] = $comment;
+    ?>
+<li id="comment-<?php comment_ID(); ?>"><i class="icon icon-share-alt"></i>&nbsp;<?php comment_author_link(); ?>
+    <?php
 
-}
+    }
 
-// Only display comments in comment count (which isn't currently displayed in wp-bootstrap, but i'm putting this in now so i don't forget to later)
-add_filter('get_comments_number', 'comment_count', 0);
-function comment_count( $count ) {
-	if ( ! is_admin() ) {
-		global $id;
-	    $comments_by_type = &separate_comments(get_comments('status=approve&post_id=' . $id));
-	    return count($comments_by_type['comment']);
-	} else {
-	    return $count;
-	}
-}
+    // Only display comments in comment count (which isn't currently displayed in wp-bootstrap, but i'm putting this in now so i don't forget to later)
+    add_filter('get_comments_number', 'comment_count', 0);
+    function comment_count($count)
+    {
+        if (!is_admin()) {
+            global $id;
+            $comments_by_type = &separate_comments(get_comments('status=approve&post_id=' . $id));
+            return count($comments_by_type['comment']);
+        } else {
+            return $count;
+        }
+    }
 
-/************* SEARCH FORM LAYOUT *****************/
+    /************* SEARCH FORM LAYOUT *****************/
 
-// Search Form
-function bones_wpsearch($form) {
-    $form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
+    // Search Form
+    function bones_wpsearch($form)
+    {
+        $form = '<form role="search" method="get" id="searchform" action="' . home_url('/') . '" >
     <label class="screen-reader-text" for="s">' . __('Search for:', 'bonestheme') . '</label>
     <input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="Search the Site..." />
-    <input type="submit" id="searchsubmit" value="'. esc_attr__('Search','bonestheme') .'" />
+    <input type="submit" id="searchsubmit" value="' . esc_attr__('Search', 'bonestheme') . '" />
     </form>';
-    return $form;
-} // don't remove this bracket!
+        return $form;
+    } // don't remove this bracket!
 
-/****************** password protected post form *****/
+    /****************** password protected post form *****/
 
-//////////////////////////////////////
-/// Customize the password form
-//////////////////////////////////////
-function bootstrap_the_password_form($form)
-{
-    $url = esc_url(site_url('wp-login.php?action=postpass', 'login_post'));
-    $id = get_the_ID();
-    $password_msg = __( "This post is password protected. To view it please enter your password below." ,'bonestheme');
-    return <<<FORM
+    //////////////////////////////////////
+    /// Customize the password form
+    //////////////////////////////////////
+    function bootstrap_the_password_form($form)
+    {
+        $url = esc_url(site_url('wp-login.php?action=postpass', 'login_post'));
+        $id = get_the_ID();
+        $password_msg = __("This post is password protected. To view it please enter your password below.", 'bonestheme');
+        return <<<FORM
 		<div class="container password-container">
 			<div class="hero-unit">
 				<h1>
@@ -226,298 +232,314 @@ function bootstrap_the_password_form($form)
 			});
 		</script>
 FORM;
-}
-
-add_filter('the_password_form', 'bootstrap_the_password_form');
-
-/*********** update standard wp tag cloud widget so it looks better ************/
-
-add_filter( 'widget_tag_cloud_args', 'my_widget_tag_cloud_args' );
-
-function my_widget_tag_cloud_args( $args ) {
-	$args['number'] = 20; // show less tags
-	$args['largest'] = 9.75; // make largest and smallest the same - i don't like the varying font-size look
-	$args['smallest'] = 9.75;
-	$args['unit'] = 'px';
-	return $args;
-}
-
-
-
-// filter tag clould output so that it can be styled by CSS
-function add_tag_class( $taglinks ) {
-    $tags = explode('</a>', $taglinks);
-    $regex = "#(.*tag-link[-])(.*)(' title.*)#e";
-        foreach( $tags as $tag ) {
-        	$tagn[] = preg_replace($regex, "('$1$2 label tag-'.get_tag($2)->slug.'$3')", $tag );
-        }
-    $taglinks = implode('</a>', $tagn);
-    return $taglinks;
-}
-
-add_action('wp_tag_cloud', 'add_tag_class');
-
-add_filter('wp_tag_cloud','wp_tag_cloud_filter', 10, 2);
-
-function wp_tag_cloud_filter($return, $args)
-{
-  return '<div id="tag-cloud">'.$return.'</div>';
-}
-
-// Enable shortcodes in widgets
-add_filter('widget_text', 'do_shortcode');
-
-// Disable jump in 'read more' link
-function remove_more_jump_link($link) {
-	$offset = strpos($link, '#more-');
-	if ($offset) {
-		$end = strpos($link, '"',$offset);
-	}
-	if ($end) {
-		$link = substr_replace($link, '', $offset, $end-$offset);
-	}
-	return $link;
-}
-add_filter('the_content_more_link', 'remove_more_jump_link');
-
-// Remove height/width attributes on images so they can be responsive
-add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10 );
-add_filter( 'image_send_to_editor', 'remove_thumbnail_dimensions', 10 );
-
-function remove_thumbnail_dimensions( $html ) {
-    $html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
-    return $html;
-}
-
-// Add the Meta Box to the homepage template
-function add_homepage_meta_box() {  
-	global $post;
-	// Only add homepage meta box if template being used is the homepage template
-	// $post_id = isset($_GET['post']) ? $_GET['post'] : (isset($_POST['post_ID']) ? $_POST['post_ID'] : "");
-	$post_id = $post->ID;
-	$template_file = get_post_meta($post_id,'_wp_page_template',TRUE);
-	if ($template_file == 'page-homepage.php')
-	{
-	    add_meta_box(  
-	        'homepage_meta_box', // $id  
-	        'Optional Homepage Tagline', // $title  
-	        'show_homepage_meta_box', // $callback  
-	        'page', // $page  
-	        'normal', // $context  
-	        'high'); // $priority  
     }
-}  
-add_action('add_meta_boxes', 'add_homepage_meta_box');
 
-// Field Array  
-$prefix = 'custom_';  
-$custom_meta_fields = array(  
-    array(  
-        'label'=> 'Homepage tagline area',  
-        'desc'  => 'Displayed underneath page title. Only used on homepage template. HTML can be used.',  
-        'id'    => $prefix.'tagline',  
-        'type'  => 'textarea' 
-    )  
-);  
+    add_filter('the_password_form', 'bootstrap_the_password_form');
 
-// The Homepage Meta Box Callback  
-function show_homepage_meta_box() {  
-global $custom_meta_fields, $post;  
+    /*********** update standard wp tag cloud widget so it looks better ************/
+
+    add_filter('widget_tag_cloud_args', 'my_widget_tag_cloud_args');
+
+    function my_widget_tag_cloud_args($args)
+    {
+        $args['number'] = 20; // show less tags
+        $args['largest'] = 9.75; // make largest and smallest the same - i don't like the varying font-size look
+        $args['smallest'] = 9.75;
+        $args['unit'] = 'px';
+        return $args;
+    }
+
+
+    // filter tag clould output so that it can be styled by CSS
+    function add_tag_class($taglinks)
+    {
+        $tags = explode('</a>', $taglinks);
+        $regex = "#(.*tag-link[-])(.*)(' title.*)#e";
+        foreach ($tags as $tag) {
+            $tagn[] = preg_replace($regex, "('$1$2 label tag-'.get_tag($2)->slug.'$3')", $tag);
+        }
+        $taglinks = implode('</a>', $tagn);
+        return $taglinks;
+    }
+
+    add_action('wp_tag_cloud', 'add_tag_class');
+
+    add_filter('wp_tag_cloud', 'wp_tag_cloud_filter', 10, 2);
+
+    function wp_tag_cloud_filter($return, $args)
+    {
+        return '<div id="tag-cloud">' . $return . '</div>';
+    }
+
+    // Enable shortcodes in widgets
+    add_filter('widget_text', 'do_shortcode');
+
+    // Disable jump in 'read more' link
+    function remove_more_jump_link($link)
+    {
+        $offset = strpos($link, '#more-');
+        if ($offset) {
+            $end = strpos($link, '"', $offset);
+        }
+        if ($end) {
+            $link = substr_replace($link, '', $offset, $end - $offset);
+        }
+        return $link;
+    }
+
+    add_filter('the_content_more_link', 'remove_more_jump_link');
+
+    // Remove height/width attributes on images so they can be responsive
+    add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10);
+    add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10);
+
+    function remove_thumbnail_dimensions($html)
+    {
+        $html = preg_replace('/(width|height)=\"\d*\"\s/', "", $html);
+        return $html;
+    }
+
+    // Add the Meta Box to the homepage template
+    function add_homepage_meta_box()
+    {
+        global $post;
+        // Only add homepage meta box if template being used is the homepage template
+        // $post_id = isset($_GET['post']) ? $_GET['post'] : (isset($_POST['post_ID']) ? $_POST['post_ID'] : "");
+        $post_id = $post->ID;
+        $template_file = get_post_meta($post_id, '_wp_page_template', TRUE);
+        if ($template_file == 'page-homepage.php') {
+            add_meta_box(
+                'homepage_meta_box', // $id
+                'Optional Homepage Tagline', // $title
+                'show_homepage_meta_box', // $callback
+                'page', // $page
+                'normal', // $context
+                'high'); // $priority
+        }
+    }
+
+    add_action('add_meta_boxes', 'add_homepage_meta_box');
+
+    // Field Array
+    $prefix = 'custom_';
+    $custom_meta_fields = array(
+        array(
+            'label' => 'Homepage tagline area',
+            'desc' => 'Displayed underneath page title. Only used on homepage template. HTML can be used.',
+            'id' => $prefix . 'tagline',
+            'type' => 'textarea'
+        )
+    );
+
+    // The Homepage Meta Box Callback
+    function show_homepage_meta_box()
+    {
+        global $custom_meta_fields, $post;
 // Use nonce for verification  
-  wp_nonce_field( basename( __FILE__ ), 'wpbs_nonce' );
-    
-    // Begin the field table and loop  
-    echo '<table class="form-table">';  
-    foreach ($custom_meta_fields as $field) {  
-        // get value of this field if it exists for this post  
-        $meta = get_post_meta($post->ID, $field['id'], true);  
-        // begin a table row with  
-        echo '<tr> 
-                <th><label for="'.$field['id'].'">'.$field['label'].'</label></th> 
-                <td>';  
-                switch($field['type']) {  
-                    // text  
-                    case 'text':  
-                        echo '<input type="text" name="'.$field['id'].'" id="'.$field['id'].'" value="'.$meta.'" size="60" /> 
-                            <br /><span class="description">'.$field['desc'].'</span>';  
+        wp_nonce_field(basename(__FILE__), 'wpbs_nonce');
+
+        // Begin the field table and loop
+        echo '<table class="form-table">';
+        foreach ($custom_meta_fields as $field) {
+            // get value of this field if it exists for this post
+            $meta = get_post_meta($post->ID, $field['id'], true);
+            // begin a table row with
+            echo '<tr> 
+                <th><label for="' . $field['id'] . '">' . $field['label'] . '</label></th> 
+                <td>';
+            switch ($field['type']) {
+                // text
+                case 'text':
+                    echo '<input type="text" name="' . $field['id'] . '" id="' . $field['id'] . '" value="' . $meta . '" size="60" /> 
+                            <br /><span class="description">' . $field['desc'] . '</span>';
                     break;
-                    
-                    // textarea  
-                    case 'textarea':  
-                        echo '<textarea name="'.$field['id'].'" id="'.$field['id'].'" cols="80" rows="4">'.$meta.'</textarea> 
-                            <br /><span class="description">'.$field['desc'].'</span>';  
-                    break;  
-                } //end switch  
-        echo '</td></tr>';  
-    } // end foreach  
-    echo '</table>'; // end table  
-}  
 
-// Save the Data  
-function save_homepage_meta($post_id) {  
-    global $custom_meta_fields;  
-  
-    // verify nonce  
-    if (!isset( $_POST['wpbs_nonce'] ) || !wp_verify_nonce($_POST['wpbs_nonce'], basename(__FILE__)))  
-        return $post_id;  
-    // check autosave  
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)  
-        return $post_id;  
-    // check permissions  
-    if ('page' == $_POST['post_type']) {  
-        if (!current_user_can('edit_page', $post_id))  
-            return $post_id;  
-        } elseif (!current_user_can('edit_post', $post_id)) {  
-            return $post_id;  
-    }  
-  
-    // loop through fields and save the data  
-    foreach ($custom_meta_fields as $field) {  
-        $old = get_post_meta($post_id, $field['id'], true);  
-        $new = $_POST[$field['id']];  
-        if ($new && $new != $old) {  
-            update_post_meta($post_id, $field['id'], $new);  
-        } elseif ('' == $new && $old) {  
-            delete_post_meta($post_id, $field['id'], $old);  
-        }  
-    } // end foreach  
-}  
-add_action('save_post', 'save_homepage_meta');  
+                // textarea
+                case 'textarea':
+                    echo '<textarea name="' . $field['id'] . '" id="' . $field['id'] . '" cols="80" rows="4">' . $meta . '</textarea> 
+                            <br /><span class="description">' . $field['desc'] . '</span>';
+                    break;
+            } //end switch
+            echo '</td></tr>';
+        } // end foreach
+        echo '</table>'; // end table
+    }
 
-// Add thumbnail class to thumbnail links
-function add_class_attachment_link($html){
-    $postid = get_the_ID();
-    $html = str_replace('<a','<a class="thumbnail"',$html);
-    return $html;
-}
-add_filter('wp_get_attachment_link','add_class_attachment_link',10,1);
+    // Save the Data
+    function save_homepage_meta($post_id)
+    {
+        global $custom_meta_fields;
 
-// Add lead class to first paragraph
-function first_paragraph($content){
-    global $post;
+        // verify nonce
+        if (!isset($_POST['wpbs_nonce']) || !wp_verify_nonce($_POST['wpbs_nonce'], basename(__FILE__)))
+            return $post_id;
+        // check autosave
+        if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
+            return $post_id;
+        // check permissions
+        if ('page' == $_POST['post_type']) {
+            if (!current_user_can('edit_page', $post_id))
+                return $post_id;
+        } elseif (!current_user_can('edit_post', $post_id)) {
+            return $post_id;
+        }
 
-    // if we're on the homepage, don't add the lead class to the first paragraph of text
-    if( is_page_template( 'page-homepage.php' ) )
-        return $content;
-    else
-        return preg_replace('/<p([^>]+)?>/', '<p$1 class="lead">', $content, 1);
-}
-//add_filter('the_content', 'first_paragraph');
+        // loop through fields and save the data
+        foreach ($custom_meta_fields as $field) {
+            $old = get_post_meta($post_id, $field['id'], true);
+            $new = $_POST[$field['id']];
+            if ($new && $new != $old) {
+                update_post_meta($post_id, $field['id'], $new);
+            } elseif ('' == $new && $old) {
+                delete_post_meta($post_id, $field['id'], $old);
+            }
+        } // end foreach
+    }
 
-// Menu output mods
-class description_walker extends Walker_Nav_Menu
-{
-      function start_el(&$output, $item, $depth, $args)
-      {
-			global $wp_query;
-			$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
-			
-			$class_names = $value = '';
-			
-			// If the item has children, add the dropdown class for bootstrap
-			if ( $args->has_children ) {
-				$class_names = "dropdown ";
-			}
-			
-			$classes = empty( $item->classes ) ? array() : (array) $item->classes;
-			
-			$class_names .= join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
-			$class_names = ' class="'. esc_attr( $class_names ) . '"';
-           
-           	$output .= $indent . '<li id="menu-item-'. $item->ID . '"' . $value . $class_names .'>';
+    add_action('save_post', 'save_homepage_meta');
 
-           	$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
-           	$attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
-           	$attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
-           	$attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
-           	// if the item has children add these two attributes to the anchor tag
-           	if ( $args->has_children ) {
-				$attributes .= ' class="dropdown-toggle" data-toggle="dropdown"';
-			}
+    // Add thumbnail class to thumbnail links
+    function add_class_attachment_link($html)
+    {
+        $postid = get_the_ID();
+        $html = str_replace('<a', '<a class="thumbnail"', $html);
+        return $html;
+    }
+
+    add_filter('wp_get_attachment_link', 'add_class_attachment_link', 10, 1);
+
+    // Add lead class to first paragraph
+    function first_paragraph($content)
+    {
+        global $post;
+
+        // if we're on the homepage, don't add the lead class to the first paragraph of text
+        if (is_page_template('page-homepage.php'))
+            return $content;
+        else
+            return preg_replace('/<p([^>]+)?>/', '<p$1 class="lead">', $content, 1);
+    }
+
+    //add_filter('the_content', 'first_paragraph');
+
+    // Menu output mods
+    class description_walker extends Walker_Nav_Menu
+    {
+        function start_el(&$output, $item, $depth, $args)
+        {
+            global $wp_query;
+            $indent = ($depth) ? str_repeat("\t", $depth) : '';
+
+            $class_names = $value = '';
+
+            // If the item has children, add the dropdown class for bootstrap
+            if ($args->has_children) {
+                $class_names = "dropdown ";
+            }
+
+            $classes = empty($item->classes) ? array() : (array)$item->classes;
+
+            $class_names .= join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item));
+            $class_names = ' class="' . esc_attr($class_names) . '"';
+
+            $output .= $indent . '<li id="menu-item-' . $item->ID . '"' . $value . $class_names . '>';
+
+            $attributes = !empty($item->attr_title) ? ' title="' . esc_attr($item->attr_title) . '"' : '';
+            $attributes .= !empty($item->target) ? ' target="' . esc_attr($item->target) . '"' : '';
+            $attributes .= !empty($item->xfn) ? ' rel="' . esc_attr($item->xfn) . '"' : '';
+            $attributes .= !empty($item->url) ? ' href="' . esc_attr($item->url) . '"' : '';
+            // if the item has children add these two attributes to the anchor tag
+            if ($args->has_children) {
+                $attributes .= ' class="dropdown-toggle" data-toggle="dropdown"';
+            }
 
             $item_output = $args->before;
-            $item_output .= '<a'. $attributes .'>';
-            $item_output .= $args->link_before .apply_filters( 'the_title', $item->title, $item->ID );
+            $item_output .= '<a' . $attributes . '>';
+            $item_output .= $args->link_before . apply_filters('the_title', $item->title, $item->ID);
             $item_output .= $args->link_after;
             // if the item has children add the caret just before closing the anchor tag
-            if ( $args->has_children ) {
-            	$item_output .= '<b class="caret"></b></a>';
-            }
-            else{
-            	$item_output .= '</a>';
+            if ($args->has_children) {
+                $item_output .= '<b class="caret"></b></a>';
+            } else {
+                $item_output .= '</a>';
             }
             $item_output .= $args->after;
 
-            $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
-            }
-            
-        function start_lvl(&$output, $depth) {
+            $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
+        }
+
+        function start_lvl(&$output, $depth)
+        {
             $indent = str_repeat("\t", $depth);
             $output .= "\n$indent<ul class=\"dropdown-menu\">\n";
         }
-            
-      	function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output )
-      	    {
-      	        $id_field = $this->db_fields['id'];
-      	        if ( is_object( $args[0] ) ) {
-      	            $args[0]->has_children = ! empty( $children_elements[$element->$id_field] );
-      	        }
-      	        return parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
-      	    }
-      	
-            
-}
 
-add_editor_style('editor-style.css');
+        function display_element($element, &$children_elements, $max_depth, $depth = 0, $args, &$output)
+        {
+            $id_field = $this->db_fields['id'];
+            if (is_object($args[0])) {
+                $args[0]->has_children = !empty($children_elements[$element->$id_field]);
+            }
+            return parent::display_element($element, $children_elements, $max_depth, $depth, $args, $output);
+        }
 
-// Add Twitter Bootstrap's standard 'active' class name to the active nav link item
 
-add_filter('nav_menu_css_class', 'add_active_class', 10, 2 );
-function add_active_class($classes = array(), $menu_item = false)
-{
-
-    if (in_array('current-menu-item', $menu_item->classes) || in_array('current-menu-parent', $menu_item->classes)) {
-        $classes[] = 'active';
     }
 
-    return $classes;
-}
+    add_editor_style('editor-style.css');
 
-// enqueue styles
+    // Add Twitter Bootstrap's standard 'active' class name to the active nav link item
 
-function theme_styles()  
-{ 
-    // This is the compiled css file from LESS - this means you compile the LESS file locally and put it in the appropriate directory if you want to make any changes to the master bootstrap.min.css.
-    wp_register_style( 'wp-bootstrap', get_template_directory_uri() . '/style.css', array(), '1.0', 'all' );
-    wp_enqueue_style( 'wp-bootstrap');
-}
-add_action('wp_enqueue_scripts', 'theme_styles');
+    add_filter('nav_menu_css_class', 'add_active_class', 10, 2);
+    function add_active_class($classes = array(), $menu_item = false)
+    {
 
-// enqueue javascript
+        if (in_array('current-menu-item', $menu_item->classes) || in_array('current-menu-parent', $menu_item->classes)) {
+            $classes[] = 'active';
+        }
 
-function theme_js(){
-  // wp_register_script('less', get_template_directory_uri().'/library/js/less-1.3.0.min.js');
+        return $classes;
+    }
 
-  wp_deregister_script('jquery'); // initiate the function  
-  wp_register_script('jquery', get_template_directory_uri().'/library/js/libs/jquery-1.7.1.min.js', false, '1.7.1');
+    // enqueue styles
 
-  wp_register_script('bootstrap', get_template_directory_uri().'/library/bootstrap/js/bootstrap.min.js');
+    function theme_styles()
+    {
+        // This is the compiled css file from LESS - this means you compile the LESS file locally and put it in the appropriate directory if you want to make any changes to the master bootstrap.min.css.
+        wp_register_style('wp-bootstrap', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
+        wp_enqueue_style('wp-bootstrap');
+    }
 
-  wp_register_script('wpbs-scripts', get_template_directory_uri().'/library/js/scripts.js');
-  wp_register_script('modernizr', get_template_directory_uri().'/library/js/modernizr.full.min.js');
+    add_action('wp_enqueue_scripts', 'theme_styles');
 
-  wp_enqueue_script('jquery');
-  wp_enqueue_script('bootstrap', array('jQuery'), '1.1', true);
+    // enqueue javascript
 
-  wp_enqueue_script('wpbs-scripts', array('jQuery'), '1.1', true);
-  wp_enqueue_script('modernizr', array('jQuery'), '1.1', true);
-}
-add_action('wp_enqueue_scripts', 'theme_js');
+    function theme_js()
+    {
+        // wp_register_script('less', get_template_directory_uri().'/library/js/less-1.3.0.min.js');
 
-// Get theme options
-function get_wpbs_theme_options(){
-  $theme_options_styles = '';
-    
+        wp_deregister_script('jquery'); // initiate the function
+        wp_register_script('jquery', get_template_directory_uri() . '/library/js/libs/jquery-1.7.1.min.js', false, '1.7.1');
+
+        wp_register_script('bootstrap', get_template_directory_uri() . '/library/bootstrap/js/bootstrap.min.js');
+
+        wp_register_script('wpbs-scripts', get_template_directory_uri() . '/library/js/scripts.js');
+        wp_register_script('modernizr', get_template_directory_uri() . '/library/js/modernizr.full.min.js');
+
+        wp_enqueue_script('jquery');
+        wp_enqueue_script('bootstrap', array('jQuery'), '1.1', true);
+
+        wp_enqueue_script('wpbs-scripts', array('jQuery'), '1.1', true);
+        wp_enqueue_script('modernizr', array('jQuery'), '1.1', true);
+    }
+
+    add_action('wp_enqueue_scripts', 'theme_js');
+
+    // Get theme options
+    function get_wpbs_theme_options()
+    {
+        $theme_options_styles = '';
+
 //      $heading_typography = of_get_option('heading_typography');
 //      if ( $heading_typography['face'] != 'Default' ) {
 //        $theme_options_styles .= '
@@ -561,20 +583,19 @@ function get_wpbs_theme_options(){
 //          color: ' . $link_active_color . ';
 //        }';
 //      }
-      
-      $topbar_position = of_get_option('nav_position');
-      if ($topbar_position == 'scroll') {
-        $theme_options_styles .= '
+
+        $topbar_position = of_get_option('nav_position');
+        if ($topbar_position == 'scroll') {
+            $theme_options_styles .= '
         .navbar{ 
           position: static; 
         }
         body{
           padding-top: 0;
         }
-        ' 
-        ;
-      }
-      
+        ';
+        }
+
 //      $topbar_bg_color = of_get_option('top_nav_bg_color');
 //      $use_gradient = of_get_option('showhidden_gradient');
 //      if ( $topbar_bg_color && !$use_gradient ) {
@@ -644,86 +665,87 @@ function get_wpbs_theme_options(){
 //          background-color: '. $hero_unit_bg_color . ';
 //        }';
 //      }
-      
-      $suppress_comments_message = of_get_option('suppress_comments_message');
-      if ($suppress_comments_message){
-        $theme_options_styles .= '
+
+        $suppress_comments_message = of_get_option('suppress_comments_message');
+        if ($suppress_comments_message) {
+            $theme_options_styles .= '
         #main article {
           border-bottom: none;
         }';
-      }
-      
-      $additional_css = of_get_option('wpbs_css');
-      if( $additional_css ){
-        $theme_options_styles .= $additional_css;
-      }
-          
-      if($theme_options_styles){
-        echo '<style>' 
-        . $theme_options_styles . '
+        }
+
+        $additional_css = of_get_option('wpbs_css');
+        if ($additional_css) {
+            $theme_options_styles .= $additional_css;
+        }
+
+        if ($theme_options_styles) {
+            echo '<style>'
+                . $theme_options_styles . '
         </style>';
-      }
-    
-      $bootstrap_theme = of_get_option('wpbs_theme');
-      $use_theme = of_get_option('showhidden_themes');
-      
-      if( $bootstrap_theme && $use_theme ){
-        if( $bootstrap_theme == 'default' ){}
-        else {
-          echo '<link rel="stylesheet" href="' . get_template_directory_uri() . '/admin/themes/' . $bootstrap_theme . '.css">';
         }
-      }
-} // end get_wpbs_theme_options function
 
+        $bootstrap_theme = of_get_option('wpbs_theme');
+        $use_theme = of_get_option('showhidden_themes');
 
-//////////////////////////////////////
-/// Strip protected title formatting
-//////////////////////////////////////
-function blank($title)
-{
-    return '%s';
-}
-
-add_filter('protected_title_format', 'blank');
-
-function get_post_thumbnail_src($post_id){
-    $content = get_the_post_thumbnail($post_id, 'thumbnail');
-    $output = preg_match_all( '/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $content, $matches );
-    $src = "";
-
-    // Make sure there was an image that was found, otherwise return false
-    if ( $output !== FALSE ) {
-        $src = $matches[1][0];
-        if ( ! preg_match('/^https?:\/\//', $src ) ) {
-            // Remove any starting slash with ltrim() and add one to the end of site_url()
-            $src = site_url( '/' ) . ltrim( $src, '/' );
+        if ($bootstrap_theme && $use_theme) {
+            if ($bootstrap_theme == 'default') {
+            } else {
+                echo '<link rel="stylesheet" href="' . get_template_directory_uri() . '/admin/themes/' . $bootstrap_theme . '.css">';
+            }
         }
+    } // end get_wpbs_theme_options function
+
+
+    //////////////////////////////////////
+    /// Strip protected title formatting
+    //////////////////////////////////////
+    function blank($title)
+    {
+        return '%s';
     }
 
-    return $src;
-}
+    add_filter('protected_title_format', 'blank');
 
-function my_excerpt($text, $excerpt)
-{
-    if ($excerpt) return $excerpt;
+    function get_post_thumbnail_src($post_id)
+    {
+        $content = get_the_post_thumbnail($post_id, 'thumbnail');
+        $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $content, $matches);
+        $src = "";
 
-    $text = strip_shortcodes( $text );
+        // Make sure there was an image that was found, otherwise return false
+        if ($output !== FALSE) {
+            $src = $matches[1][0];
+            if (!preg_match('/^https?:\/\//', $src)) {
+                // Remove any starting slash with ltrim() and add one to the end of site_url()
+                $src = site_url('/') . ltrim($src, '/');
+            }
+        }
 
-    $text = apply_filters('the_content', $text);
-    $text = str_replace(']]>', ']]&gt;', $text);
-    $text = strip_tags($text);
-    $excerpt_length = apply_filters('excerpt_length', 55);
-    $excerpt_more = apply_filters('excerpt_more', ' ' . '[...]');
-    $words = preg_split("/[\n\r\t ]+/", $text, $excerpt_length + 1, PREG_SPLIT_NO_EMPTY);
-    if ( count($words) > $excerpt_length ) {
-        array_pop($words);
-        $text = implode(' ', $words);
-        $text = $text . $excerpt_more;
-    } else {
-        $text = implode(' ', $words);
+        return $src;
     }
 
-    return wp_trim_excerpt($text);// apply_filters('wp_trim_excerpt', $text, $raw_excerpt);
-}
+    function my_excerpt($text, $excerpt)
+    {
+        if ($excerpt) return $excerpt;
 
-?>
+        $text = strip_shortcodes($text);
+
+        $text = apply_filters('the_content', $text);
+        $text = str_replace(']]>', ']]&gt;', $text);
+        $text = strip_tags($text);
+        $excerpt_length = apply_filters('excerpt_length', 55);
+        $excerpt_more = apply_filters('excerpt_more', ' ' . '[...]');
+        $words = preg_split("/[\n\r\t ]+/", $text, $excerpt_length + 1, PREG_SPLIT_NO_EMPTY);
+        if (count($words) > $excerpt_length) {
+            array_pop($words);
+            $text = implode(' ', $words);
+            $text = $text . $excerpt_more;
+        } else {
+            $text = implode(' ', $words);
+        }
+
+        return wp_trim_excerpt($text);// apply_filters('wp_trim_excerpt', $text, $raw_excerpt);
+    }
+
+    ?>
